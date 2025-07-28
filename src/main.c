@@ -14,6 +14,7 @@ typedef enum {
     ALIVE,
     LOSE,
     WIN,
+    QUIT,
 } GameState;
 
 typedef struct Block {
@@ -141,8 +142,13 @@ int main() {
     printGrid(grid);
 
     while (game_state == ALIVE) {
-        puts("Type a row and a colums <x, y>");
+        puts("Type a row and a colums <x, y> or 10 to quit.");
         scanf("%d, %d", &row, &col);
+        if (row == 10) {
+            game_state = QUIT;
+            break;
+        }
+
         int open_result = openBlocks(grid, row, col);
         if (open_result == FAIL) {
             game_state = LOSE;
