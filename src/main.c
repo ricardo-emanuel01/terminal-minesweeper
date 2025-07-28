@@ -4,9 +4,9 @@
 
 
 typedef struct Block {
-    unsigned short int n_bombs;
-    unsigned short int is_bomb;
-    unsigned short int visible;
+    unsigned short int n_bombs; // Number of adjacent bombs
+    unsigned short int is_bomb; // 1 if it's a bomb and 0 otherwise
+    unsigned short int visible; // 1 if it's visible for the player and 0 otherwise
 } Block, *BlockPtr;
 
 typedef struct Grid {
